@@ -37,6 +37,7 @@ jobs:
       - name: Terraform Init
         run: |
           cd terraform_advanced
+          terraform workspace select dev 
           terraform init \
           -backend-config="bucket=my-terraform-states-nitesh" \
           -backend-config="key=ec2/dev/terraform.tfstate" \
