@@ -28,7 +28,9 @@ jobs:
 
       # Init Terraform
       - name: Terraform Init
-        run: terraform init
+        run: |
+          cd terraform_advanced
+          terraform init
 
       # Validate
       - name: Terraform Validate
