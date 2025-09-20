@@ -51,10 +51,13 @@ jobs:
       # Plan
       - name: Terraform Plan
         run: |
+          cd terraform_advanced
           terraform workspace select dev 
           terraform plan -var-file=dev.tfvars
 
       # Apply (only on push to main, not PRs)
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
-        run: terraform apply -var-file=dev.tfvars
+        run: |
+          cd terraform_advanced
+          terraform apply -var-file=dev.tfvars
